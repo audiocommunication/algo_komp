@@ -6,13 +6,13 @@ Markdown ist ein einfach Textauszeichungsprache.
 [Markdown Cheatsheet.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 
-|      Name       | Sound | Kanäle | Midi In | Midi Out |
-|:---------------:|:-----:|:------:|:-------:|:--------:|
-| BeispielGruppe1 |   ✓   |   5    |    2    |    4     |
-| BeispielGruppe2 |   x   |   2    |    0    |    2     |
-|                 |       |        |         |          |
-|                 |       |        |         |          |
-|                 |       |        |         |          |
+|      Name       | Sound | Kanäle | Midi In | Midi Out | Video Out |
+|:---------------:|:-----:|:------:|:-------:|:--------:|:---------:|
+| BeispielGruppe1 |   ✓   |   5    |    2    |    4     |     x     |
+| BeispielGruppe2 |   x   |   2    |    0    |    2     |     ✓     |
+|                 |       |        |         |          |           |
+|                 |       |        |         |          |           |
+|                 |       |        |         |          |           |
 
 
 Parameter Konvention
