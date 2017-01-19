@@ -29,7 +29,7 @@ Wir horchen auf OSC Messages im folgenden Format:
 ### Bild
 
  * `/size f f f     (x,y,z: Ausdehnung der geometrischen Figuren von 0. bis 1.)
- * `/rota f         ($$\alpha: Freiheitsgrad der geometrischen Figuren von 0. bis 360.)
+ * `/rota f         (alpha: Freiheitsgrad der geometrischen Figuren von 0. bis 360.)
  * `/move f f f     (x,y,z: Verschiebt die geometrischen Figuren anteilig vom Zentrum weg, Werte: 0. bis 1.)
  * `/color f f f     (r,g,b: Coloriert die geometrischen Figuren, Werte: 0. bis 1.)
 
