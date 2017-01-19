@@ -10,8 +10,8 @@ Markdown ist ein einfach Textauszeichungsprache.
 |:---------------:|:-----:|:------:|:------:|:-------:|:---------:|
 | BeispielGruppe1 |   ✓   |   5    |    2   |    4    |     x     |
 | BeispielGruppe2 |   x   |   2    |    0   |    2    |     ✓     |
-| Omnibox (Bild)  |   x   |   0    |    0   |    0    |     ✓     |
-| Omnibox (Ton)   |   ✓   |   2    |    0   |         |           |
+| Omnibox (Bild)  |   x   |   0    |    4   |    0    |     ✓     |
+| Omnibox (Ton)   |   ✓   |   2    |    1   |    0    |     x     |
 |                 |       |        |        |         |           |
 
 
@@ -36,3 +36,4 @@ Wir horchen auf OSC Messages im folgenden Format:
 ### Ton
 
  * `/notes i i i i i i i i i i i (index + 11 Noten: Integers, die als MIDI-Noten interpretiert werden. Treiben die Klangsynthese an.)
+ 
