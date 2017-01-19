@@ -6,13 +6,13 @@ Markdown ist ein einfach Textauszeichungsprache.
 [Markdown Cheatsheet.](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 
-|      Name       | Sound | Kanäle | Midi In | Midi Out | Video Out |
-|:---------------:|:-----:|:------:|:-------:|:--------:|:---------:|
-| BeispielGruppe1 |   ✓   |   5    |    2    |    4     |     x     |
-| BeispielGruppe2 |   x   |   2    |    0    |    2     |     ✓     |
-|                 |       |        |         |          |           |
-|                 |       |        |         |          |           |
-|                 |       |        |         |          |           |
+|      Name       | Sound | Kanäle | OSC In | OSC Out | Video Out |
+|:---------------:|:-----:|:------:|:------:|:-------:|:---------:|
+| BeispielGruppe1 |   ✓   |   5    |    2   |    4    |     x     |
+| BeispielGruppe2 |   x   |   2    |    0   |    2    |     ✓     |
+| Omnibox (Bild)  |   x   |   0    |    0   |    0    |     ✓     |
+| Omnibox (Ton)   |   ✓   |   2    |    0   |         |           |
+|                 |       |        |        |         |           |
 
 
 Parameter Konvention
@@ -21,16 +21,18 @@ Parameter Konvention
 * `/gruppenName/param1 float`
 
 
-BeispielGruppe1
+Omnibox
 ===============
 
-Wir senden folgende OSC Messages
+Wir horchen auf OSC Messages im folgenden Format:
 
-### Synth1
+### Bild
 
- * `/BeispielGruppe1/synth1/volume` -> Lautstärke des ersten Synth
- * `/BeispielGruppe1/synth1/note` -> Ton des ersten Synth
+ * `/size f f f     (x,y,z: Ausdehnung der geometrischen Figuren von 0. bis 1.)
+ * `/rota f         ($$\alpha: Freiheitsgrad der geometrischen Figuren von 0. bis 360.)
+ * `/move f f f     (x,y,z: Verschiebt die geometrischen Figuren anteilig vom Zentrum weg, Werte: 0. bis 1.)
+ * `/color f f f     (r,g,b: Coloriert die geometrischen Figuren, Werte: 0. bis 1.)
 
-### Drums
+### Ton
 
- * `/BeispielGruppe1/drums/noteOn` -> Schickt eine 1 wenn die Drum angeschlagen wird
+ * `/notes i i i i i i i i i i i (index + 11 Noten: Integers, die als MIDI-Noten interpretiert werden. Treiben die Klangsynthese an.)
