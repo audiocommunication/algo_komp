@@ -12,3 +12,5 @@ In Max:
 File > Show Package Manager > Suche: Link > Install
 Im selben Fenster mit "launch" die Objekte einsehen.
 
+## Ableton Link für Pure Data (Vanilla)
+[abl_link~](https://github.com/libpd/abl_link) Patch über Deken installieren (help -> find externals -> Suche: abl_link~)
