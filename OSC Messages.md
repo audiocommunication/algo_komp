@@ -11,7 +11,7 @@ Markdown ist ein einfach Textauszeichungsprache.
 | Omnibox (Bild) |   x   |   0    |   4    |    0    |     ✓     |
 | Omnibox (Ton)  |   ✓   |   2    |   1    |    0    |     x     |
 |      Cell      |   ✓   |  1-2   |  4-∞   |   4-∞   |     x     |
-|     Marble     |   x   |        |   1    |    6    |     x     |
+|     Marble     |   x   |        |   1    |    9    |     x     |
 
 
 
@@ -83,3 +83,35 @@ Es können auch neue Spuren definiert werden. Dafür muss eine Sequenz an einen 
 Die Sequenz ist danach unter diesem Name erreichbar.
 
  * `cell/sequ/lustigerBeispielName f f ... f` -> Definiert eine neue Sequenz
+
+Marble
+======
+
+Kugelspiel - "Marble"
+
+Das Kugelspiel ist ein, über einen Motor bewegliches, Spielbrett auf dem sich drei Holzkugeln in den Farben Rot, Grün, Blau (RGB) zufällig bewegen. Die jeweilige Farbe wird mittels Colortracking per Webcam erfasst und somit die Position der jeweiligen Farbkugel ermittelt. Es werden X-Position, Y-Position und der Abstand der Kugeln zueinander in Form von OSC-Daten gesendet. Zusätzlich kann zur Geschwingigkeitsregulierung des Motors ("Wippgeschwindigkeit") eine OSC-Nachricht empfangen werden.
+
+Unsere Daten können z.B. sehr gut für Modulations(effekte) verwendet und weiterverarbeitet werden. Alle Ausgabewerte sind auf die Range 0.0 bis 1.0 normiert.
+
+### OSC Out
+
+Wir senden folgende OSC Messages:
+
+ * `marble/ballR/xCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballR/yCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballG/xCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballG/yCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballB/xCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballB/yCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/distanceRG f` -> Range 0.0 bis 1.0
+ * `marble/distanceGB f` -> Range 0.0 bis 1.0
+ * `marble/distanceBR f` -> Range 0.0 bis 1.0 
+
+### OSC In
+
+Wir empfangen folgende OSC Messages:
+
+Zur Steuerung des Motors. Hier ist VORSICHT geboten! Da die Steuerung und Berechnung des Motorgeschwindigkeit/ Beschleunigung über einen Arduino erfolgt, kann es zu "Verschlucken" und holperigen Artefakten des Motors führen. Deswegen ist hier eine gute Absprache nötig, sodass nicht zu viele OSC-Nachrichten gesendet werden.
+
+ * `marble/motorspeed f` -> Range 0.0 bis 1.0
+
