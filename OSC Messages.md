@@ -11,7 +11,7 @@ Markdown ist ein einfach Textauszeichungsprache.
 | Omnibox (Bild) |   x   |   0    |   4    |    0    |     ✓     |
 | Omnibox (Ton)  |   ✓   |   2    |   1    |    0    |     x     |
 |      Cell      |   ✓   |  1-2   |  4-∞   |   4-∞   |     x     |
-|                |       |        |        |         |           |
+|     Marble     |   x   |        |   1    |    6    |     x     |
 
 
 
