@@ -11,8 +11,10 @@ Markdown ist ein einfach Textauszeichungsprache.
 | Omnibox (Bild) |   x   |   0    |   4    |    0    |     ✓     |
 | Omnibox (Ton)  |   ✓   |   2    |   1    |    0    |     x     |
 |      Cell      |   ✓   |  1-2   |  4-∞   |   4-∞   |     x     |
-|     Marble     |   x   |        |   1    |    6    |     x     |
+|     Marble     |   x   |        |   1    |    9    |     x     |
 |  DonkeyKong    |   ✓   |   2    |   2    |    5    |     ✓     |
+|                |       |        |        |         |           |
+
 
 
 
@@ -90,16 +92,47 @@ DonkeyKong (DK)
 
 ### OSC Out
 
- * `dk/position f f f f (x- und y-Position(0-1) , x- und y-Geschwindigkeit(0-1))`
- * `dk/hit f f (pitch und duration der von den Fässern berührten Note)`
- * `dk/hammerTime f (1, wenn im Hammermodus, sonst 0 )`
- * `dk/floor f (0-5, Nummer der Ebene, auf der Mario sich befindet)`
- * `dk/enemyCollision f (1, wenn Collision, sonst 0)`
- * `dk/jump (1, wenn Mario springt, sonst 0 )`
- * `dk/moving f (positiv, wenn Mario nach rechts läuft, negativ, wenn nach links )`
+ * `dk/position f f f f` (x- und y-Position(0-1) , x- und y-Geschwindigkeit(0-1))
+ * `dk/hit f f` (pitch und duration der von den Fässern berührten Note)
+ * `dk/hammerTime f` (1, wenn im Hammermodus, sonst 0 )
+ * `dk/floor f` (0-5, Nummer der Ebene, auf der Mario sich befindet)
+ * `dk/enemyCollision f` (1, wenn Collision, sonst 0)
+ * `dk/jump` (1, wenn Mario springt, sonst 0 )
+ * `dk/moving f` (positiv, wenn Mario nach rechts läuft, negativ, wenn nach links )
 
 ### OSC In
 
- * `DK/note f f (pitch und duration zum setzen der von den fässern gespielten Noten)`
- * `DK/throw f  (1, trigger zum abwerfen der Fässer)`
+ * `DK/note f f` (pitch und duration zum setzen der von den fässern gespielten Noten)
+ * `DK/throw f` (1, trigger zum abwerfen der Fässer)
+
+Marble
+======
+
+Kugelspiel - "Marble"
+
+Das Kugelspiel ist ein, über einen Motor bewegliches, Spielbrett auf dem sich drei Holzkugeln in den Farben Rot, Grün, Blau (RGB) zufällig bewegen. Die jeweilige Farbe wird mittels Colortracking per Webcam erfasst und somit die Position der jeweiligen Farbkugel ermittelt. Es werden X-Position, Y-Position und der Abstand der Kugeln zueinander in Form von OSC-Daten gesendet. Zusätzlich kann zur Geschwingigkeitsregulierung des Motors ("Wippgeschwindigkeit") eine OSC-Nachricht empfangen werden.
+
+Unsere Daten können z.B. sehr gut für Modulations(effekte) verwendet und weiterverarbeitet werden. Alle Ausgabewerte sind auf die Range 0.0 bis 1.0 normiert.
+
+### OSC Out
+
+Wir senden folgende OSC Messages:
+
+ * `marble/ballR/xCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballR/yCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballG/xCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballG/yCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballB/xCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/ballB/yCoordinate f` -> Range 0.0 bis 1.0
+ * `marble/distanceRG f` -> Range 0.0 bis 1.0
+ * `marble/distanceGB f` -> Range 0.0 bis 1.0
+ * `marble/distanceBR f` -> Range 0.0 bis 1.0 
+
+### OSC In
+
+Wir empfangen folgende OSC Messages:
+
+Zur Steuerung des Motors. Hier ist VORSICHT geboten! Da die Steuerung und Berechnung des Motorgeschwindigkeit/ Beschleunigung über einen Arduino erfolgt, kann es zu "Verschlucken" und holperigen Artefakten des Motors führen. Deswegen ist hier eine gute Absprache nötig, sodass nicht zu viele OSC-Nachrichten gesendet werden.
+
+ * `marble/motorspeed f` -> Range 0.0 bis 1.0
 
