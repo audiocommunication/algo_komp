@@ -12,6 +12,9 @@ Markdown ist ein einfach Textauszeichungsprache.
 | Omnibox (Ton)  |   ✓   |   2    |   1    |    0    |     x     |
 |      Cell      |   ✓   |  1-2   |  4-∞   |   4-∞   |     x     |
 |     Marble     |   x   |        |   1    |    9    |     x     |
+|  DonkeyKong    |   ✓   |   2    |   2    |    5    |     ✓     |
+|                |       |        |        |         |           |
+
 
 
 
@@ -83,6 +86,24 @@ Es können auch neue Spuren definiert werden. Dafür muss eine Sequenz an einen 
 Die Sequenz ist danach unter diesem Name erreichbar.
 
  * `cell/sequ/lustigerBeispielName f f ... f` -> Definiert eine neue Sequenz
+ 
+DonkeyKong (DK)
+===============
+
+### OSC Out
+
+ * `dk/position f f f f` (x- und y-Position(0-1) , x- und y-Geschwindigkeit(0-1))
+ * `dk/hit f f` (pitch und duration der von den Fässern berührten Note)
+ * `dk/hammerTime f` (1, wenn im Hammermodus, sonst 0 )
+ * `dk/floor f` (0-5, Nummer der Ebene, auf der Mario sich befindet)
+ * `dk/enemyCollision f` (1, wenn Collision, sonst 0)
+ * `dk/jump` (1, wenn Mario springt, sonst 0 )
+ * `dk/moving f` (positiv, wenn Mario nach rechts läuft, negativ, wenn nach links )
+
+### OSC In
+
+ * `DK/note f f` (pitch und duration zum setzen der von den fässern gespielten Noten)
+ * `DK/throw f` (1, trigger zum abwerfen der Fässer)
 
 Marble
 ======
