@@ -1,6 +1,3 @@
-# Omnibox Main
-to be filled...
-
 ## Omnibox Visual
 Erste Itteration der "verschachtelten Quader" die durch LFOs moduliert werden.
 Im Gegensatz zur demonstrierten Version im Seminar in Pd statt Max/MSP realisiert.
